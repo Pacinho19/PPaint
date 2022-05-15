@@ -36,7 +36,7 @@ public class PPaint extends JFrame {
 
     private void initFrame() {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(new Dimension(700, 500));
+        this.setSize(new Dimension(900, 500));
         this.setLocationRelativeTo(null);
         this.setTitle(Properties.NAME + " " + Properties.VERSION);
     }

@@ -11,7 +11,13 @@ import java.util.List;
 public class PColors extends JPanel {
 
     public static Color selectedColor;
+
     private JButton moreColors;
+    private JLabel infoSelected;
+
+    private JPanel selectedColorPanel;
+    private JPanel infoPanel;
+    private JPanel colorsPanel;
 
     public PColors() {
         selectedColor = Color.BLACK;
@@ -27,27 +33,49 @@ public class PColors extends JPanel {
                     "Choose Color",
                     selectedColor);
 
-            if (out != null) selectedColor = out;
+            if (out != null) setSelected(out);
         });
     }
 
     private void initComponents() {
         moreColors = new JButton("More");
+        infoSelected = new JLabel("Selected ");
+
+        selectedColorPanel = new JPanel();
+        infoPanel = new JPanel(new SpringLayout());
+        colorsPanel = new JPanel(new SpringLayout());
+
+        setSelected(PColors.selectedColor);
     }
 
     private void initView() {
         this.setBorder(BorderFactory.createTitledBorder("Colors"));
+        this.setLayout(new BorderLayout());
 
-        this.setLayout(new SpringLayout());
+        initColorsPanel();
+        initInfoPanel();
 
+        colorsPanel.add(moreColors);
+        colorsPanel.add(infoPanel);
+
+        SpringUtilities.makeCompactGrid(colorsPanel,
+                1, PColor.values().length + 2,
+                5, 5,
+                5, 5);
+        this.add(colorsPanel, BorderLayout.CENTER);
+    }
+
+    private void initColorsPanel() {
         PColor[] colors = PColor.values();
         List.of(colors)
-                .forEach(pc -> this.add(createButton(pc)));
+                .forEach(pc -> colorsPanel.add(createButton(pc)));
+    }
 
-        this.add(moreColors);
-
-        SpringUtilities.makeCompactGrid(this,
-                1, colors.length + 1,
+    private void initInfoPanel() {
+        infoPanel.add(infoSelected);
+        infoPanel.add(selectedColorPanel);
+        SpringUtilities.makeCompactGrid(infoPanel,
+                1, 2,
                 5, 5,
                 5, 5);
     }
@@ -55,8 +83,13 @@ public class PColors extends JPanel {
     private JButton createButton(PColor pc) {
         JButton b = new JButton();
         b.setBackground(pc.getColor());
-        b.addActionListener(e -> selectedColor = pc.getColor());
+        b.addActionListener(e -> setSelected(pc.getColor()));
         return b;
+    }
+
+    private void setSelected(Color color) {
+        selectedColor = color;
+        selectedColorPanel.setBackground(color);
     }
 
 }
