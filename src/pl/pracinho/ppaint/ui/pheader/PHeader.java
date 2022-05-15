@@ -1,5 +1,6 @@
 package pl.pracinho.ppaint.ui.pheader;
 
+import pl.pracinho.ppaint.ui.pcanvas.PCanvas;
 import pl.pracinho.ppaint.ui.pheader.pfile.PFile;
 import pl.pracinho.ppaint.ui.pheader.ptools.PTools;
 
@@ -10,7 +11,10 @@ public class PHeader extends JMenuBar {
     private PFile pFile;
     private PTools pTools;
 
-    public PHeader() {
+    private PCanvas pCanvas;
+
+    public PHeader(PCanvas pCanvas) {
+        this.pCanvas = pCanvas;
         initComponents();
         initView();
     }
@@ -21,7 +25,7 @@ public class PHeader extends JMenuBar {
     }
 
     private void initComponents() {
-        pFile = new PFile();
+        pFile = new PFile(pCanvas);
         pTools = new PTools();
     }
 

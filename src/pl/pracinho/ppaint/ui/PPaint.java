@@ -29,9 +29,9 @@ public class PPaint extends JFrame {
     }
 
     private void initComponents() {
-        pHeader = new PHeader();
-        pFooter = new PFooter();
         pCanvas = new PCanvas();
+        pFooter = new PFooter();
+        pHeader = new PHeader(pCanvas);
     }
 
     private void initFrame() {

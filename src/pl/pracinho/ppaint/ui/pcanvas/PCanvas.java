@@ -12,11 +12,9 @@ import static javax.swing.SwingUtilities.isLeftMouseButton;
 
 public class PCanvas extends JPanel implements MouseMotionListener {
 
-
     public PCanvas() {
         this.addMouseMotionListener(this);
     }
-
 
     private void doDrawing(MouseEvent e) {
         Graphics g = getGraphics();
