@@ -1,7 +1,7 @@
-package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pcolors;
+package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pcolors;
 
-import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pcolors.model.PColor;
-import springutilities.SpringUtilities;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pcolors.model.PColor;
+import pl.pracinho.ppaint.utils.SpringUtilities;
 
 import javax.swing.*;
 import java.awt.*;

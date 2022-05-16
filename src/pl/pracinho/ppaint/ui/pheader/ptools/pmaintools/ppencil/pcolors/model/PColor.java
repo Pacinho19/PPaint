@@ -1,4 +1,4 @@
-package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pcolors.model;
+package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pcolors.model;
 
 import java.awt.*;
 

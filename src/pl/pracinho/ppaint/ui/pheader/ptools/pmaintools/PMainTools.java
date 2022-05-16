@@ -1,14 +1,15 @@
 package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools;
 
-import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pcolors.PColors;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pmaintools.POtherTools;
 import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.PPencil;
-import springutilities.SpringUtilities;
+import pl.pracinho.ppaint.utils.SpringUtilities;
 
 import javax.swing.*;
 
 public class PMainTools extends JPanel {
 
     private PPencil pPencil;
+    private POtherTools pOtherTools;
 
     public PMainTools() {
         initComponents();
@@ -18,6 +19,8 @@ public class PMainTools extends JPanel {
     private void initView() {
         this.setLayout(new SpringLayout());
         this.add(pPencil);
+        this.add(new JSeparator(SwingConstants.VERTICAL));
+        this.add(pOtherTools);
 
         SpringUtilities.makeCompactGrid(this,
                 1, this.getComponentCount(),
@@ -27,5 +30,6 @@ public class PMainTools extends JPanel {
 
     private void initComponents() {
         pPencil = new PPencil();
+        pOtherTools = new POtherTools();
     }
 }

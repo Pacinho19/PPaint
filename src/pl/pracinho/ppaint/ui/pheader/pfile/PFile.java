@@ -9,13 +9,12 @@ public class PFile extends JMenu {
 
     private JMenuItem exit;
     private JMenuItem save;
+    private JMenuItem load;
 
-    private PCanvas pCanvas;
     private PFileController pFileController;
 
-    public PFile(PCanvas pCanvas) {
+    public PFile( ) {
         pFileController = new PFileController(this);
-        this.pCanvas = pCanvas;
         this.setText("File");
         initComponent();
         initView();
@@ -25,19 +24,19 @@ public class PFile extends JMenu {
     private void initActions() {
         exit.addActionListener(e -> System.exit(0));
         save.addActionListener(e -> pFileController.save());
+        save.addActionListener(e -> pFileController.load());
     }
 
     private void initView() {
-        this.add(exit);
+        this.add(load);
         this.add(save);
+        this.add(exit);
     }
 
     private void initComponent() {
         exit = new JMenuItem("Exit");
         save = new JMenuItem("Save");
+        load = new JMenuItem("Load");
     }
 
-    public PCanvas getPCanvas() {
-        return pCanvas;
-    }
 }

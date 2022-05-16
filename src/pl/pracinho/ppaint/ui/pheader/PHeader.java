@@ -11,10 +11,7 @@ public class PHeader extends JMenuBar {
     private PFile pFile;
     private PTools pTools;
 
-    private PCanvas pCanvas;
-
-    public PHeader(PCanvas pCanvas) {
-        this.pCanvas = pCanvas;
+    public PHeader( ) {
         initComponents();
         initView();
     }
@@ -25,7 +22,7 @@ public class PHeader extends JMenuBar {
     }
 
     private void initComponents() {
-        pFile = new PFile(pCanvas);
+        pFile = new PFile();
         pTools = new PTools();
     }
 

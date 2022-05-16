@@ -31,7 +31,7 @@ public class PPaint extends JFrame {
     private void initComponents() {
         pCanvas = new PCanvas();
         pFooter = new PFooter();
-        pHeader = new PHeader(pCanvas);
+        pHeader = new PHeader();
     }
 
     private void initFrame() {

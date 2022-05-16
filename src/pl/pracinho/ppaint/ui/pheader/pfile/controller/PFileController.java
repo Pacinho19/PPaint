@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class PFileController {
+
     private PFile pFile;
 
     public PFileController(PFile pFile) {
@@ -19,4 +20,7 @@ public class PFileController {
        //TODO
     }
 
+    public void load() {
+        //TODO
+    }
 }
