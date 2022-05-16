@@ -58,8 +58,8 @@ public class PCanvas extends JPanel {
 
         Graphics g = getGraphics();
 
-        if (isLeftMouseButton(e)) g.setColor(PColors.selectedColor);
-        else g.setColor(this.getBackground());
+        if (isLeftMouseButton(e)) g.setColor(PColors.colorOne.getSelectedColor());
+        else g.setColor(PColors.colorTwo.getSelectedColor());
 
         draw(g, e);
     }
@@ -76,7 +76,7 @@ public class PCanvas extends JPanel {
 
     public void drawRect(int x, int y, int width, int height) {
         Graphics g = getGraphics();
-        g.setColor(PColors.selectedColor);
+        g.setColor(PColors.colorOne.getSelectedColor());
         g.fillRect(x, y, width, height);
     }
 }
