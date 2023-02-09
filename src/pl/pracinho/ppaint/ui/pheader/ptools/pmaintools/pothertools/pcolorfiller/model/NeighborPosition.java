@@ -1,4 +1,4 @@
-package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pmaintools.pcolorfiller.model;
+package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pcolorfiller.model;
 
 public enum NeighborPosition {
 

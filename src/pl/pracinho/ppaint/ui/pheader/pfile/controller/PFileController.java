@@ -2,12 +2,6 @@ package pl.pracinho.ppaint.ui.pheader.pfile.controller;
 
 import pl.pracinho.ppaint.ui.pheader.pfile.PFile;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
 public class PFileController {
 
     private PFile pFile;
@@ -17,7 +11,7 @@ public class PFileController {
     }
 
     public void save() {
-       //TODO
+        //TODO
     }
 
     public void load() {

@@ -21,7 +21,7 @@ public class PShapes extends JPanel {
         this.setLayout(new FlowLayout());
         List.of(PShape.values())
                 .forEach(ps -> {
-                    PSingleShape pSS = new PSingleShape(ps);
+                    PSingleShape pSS = new PSingleShape(ps, ps == selectedShape);
                     pSingleShapes.add(pSS);
                     this.add(pSS);
                 });

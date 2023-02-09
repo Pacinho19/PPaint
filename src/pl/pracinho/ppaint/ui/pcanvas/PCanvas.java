@@ -1,7 +1,8 @@
 package pl.pracinho.ppaint.ui.pcanvas;
 
 import pl.pracinho.ppaint.ui.pcanvas.tools.PFunction;
-import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pmaintools.pcolorfiller.PColorFiller;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pcolorfiller.PColorFiller;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.ppipete.PPipete;
 import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pcolors.PColors;
 import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pshape.PShapes;
 import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.psize.PSize;
@@ -9,6 +10,7 @@ import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.psize.PSize;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -21,14 +23,19 @@ public class PCanvas extends JPanel {
 
     public PCanvas() {
         this.setBackground(Color.WHITE);
+
+        init();
+        initActions();
+    }
+
+    private void init() {
         pCanvas = this;
         pFunction = PFunction.DRAW;
-        initActions();
     }
 
     private void initActions() {
         this.addMouseMotionListener(mouseDraggedAdapter());
-        //this.addMouseListener(mouseClickAdapter());
+        this.addMouseListener(mouseClickAdapter());
     }
 
     private MouseListener mouseClickAdapter() {
@@ -36,7 +43,12 @@ public class PCanvas extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                PColorFiller.fill(e.getX(), e.getY());
+
+                switch (pFunction) {
+                    case DRAW -> doDrawing(e);
+                    case FILL -> PColorFiller.fill(e.getX(), e.getY());
+                    case PIPETE -> PPipete.getColor(e);
+                }
             }
         };
     }

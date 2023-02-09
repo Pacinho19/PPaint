@@ -1,6 +1,6 @@
 package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools;
 
-import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pmaintools.POtherTools;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.POtherTools;
 import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.PPencil;
 import pl.pracinho.ppaint.utils.SpringUtilities;
 

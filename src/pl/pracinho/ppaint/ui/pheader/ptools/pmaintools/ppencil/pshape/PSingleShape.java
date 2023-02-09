@@ -11,12 +11,13 @@ import static pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pshape.PSh
 
 public class PSingleShape extends JRadioButton {
 
-    public boolean selected = false;
+    public boolean selected;
 
     private PShape pShape;
 
-    public PSingleShape(PShape pShape) {
+    public PSingleShape(PShape pShape, boolean selected) {
         this.pShape = pShape;
+        this.selected = selected;
 
         this.setPreferredSize(new Dimension(50, 50));
         setOpaque(false);
@@ -75,4 +76,7 @@ public class PSingleShape extends JRadioButton {
             g.drawRect(2, 2,  (int) (diameter * 0.9), (int) (diameter * 0.9));
     }
 
+    public PShape getPShape() {
+        return pShape;
+    }
 }

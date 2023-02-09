@@ -1,8 +1,9 @@
-package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pmaintools.pcolorfiller;
+package pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pcolorfiller;
 
 import pl.pracinho.ppaint.ui.pcanvas.PCanvas;
 import pl.pracinho.ppaint.ui.pcanvas.tools.PFunction;
-import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pmaintools.pcolorfiller.model.NeighborPosition;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.pothertools.pcolorfiller.model.NeighborPosition;
+import pl.pracinho.ppaint.ui.pheader.ptools.pmaintools.ppencil.pcolors.utils.ColorUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +26,7 @@ public class PColorFiller extends JButton {
 
     public static void fill(int x, int y) {
 
-        Color baseColor = getClickedColor(x, y);
+        Color baseColor = ColorUtils.getClickedColor();
         if (baseColor == null) return;
 
         int maxX = PCanvas.pCanvas.getWidth();
@@ -71,21 +72,12 @@ public class PColorFiller extends JButton {
         return y1 <= maxY;
     }
 
-    private static boolean checkFill(Color baseColor, int x, int y) {
-        if (Objects.equals(baseColor, getClickedColor(x, y))) {
-            PCanvas.pCanvas.drawRect(x, y, 1, 1);
-            return true;
-        }
+    private static boolean checkFill(Color baseColor, int x, int y)  {
+            if (Objects.equals(baseColor, ColorUtils.getClickedColor())) {
+                PCanvas.pCanvas.drawRect(x, y, 1, 1);
+                return true;
+            }
         return false;
     }
 
-    private static Color getClickedColor(int x, int y) {
-        try {
-            Robot r = new Robot();
-            return r.getPixelColor(x, y);
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

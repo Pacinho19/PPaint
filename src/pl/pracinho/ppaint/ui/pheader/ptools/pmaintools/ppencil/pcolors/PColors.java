@@ -44,7 +44,7 @@ public class PColors extends JPanel {
         });
     }
 
-    private void setColorByClick(MouseEvent e, Color color) {
+    public static void setColorByClick(MouseEvent e, Color color) {
         if (isLeftMouseButton(e)) setSelectedColorOne(color);
         else setSelectedColorTwo(color);
     }
@@ -105,11 +105,11 @@ public class PColors extends JPanel {
         };
     }
 
-    private void setSelectedColorOne(Color color) {
+    private static void setSelectedColorOne(Color color) {
         colorOne.setColor(color);
     }
 
-    private void setSelectedColorTwo(Color color) {
+    private static void setSelectedColorTwo(Color color) {
         colorTwo.setColor(color);
     }
 
